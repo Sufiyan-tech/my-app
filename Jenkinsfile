@@ -3,7 +3,11 @@ int build = 5
 class BuildSettings{
     def name;
     def description;
-    int currentBuildNo = currentBuild.number
+    int currentBuildNo;
+
+    public BuildSettings(int currentBuildNo){
+        this.currentBuildNo = currentBuildNo;
+    }
 
     public void getDetails(int build){
         switch(build){
@@ -20,8 +24,8 @@ class BuildSettings{
                 this.description = "Sufiyan Negative Description"
                 break   
             default:
-                this.name = "Sufiyan " + currentBuildNo + " Build"
-                this.description = "Sufiyan " + currentBuildNo + " Description"
+                this.name = "Sufiyan " + this.currentBuildNo + " Build"
+                this.description = "Sufiyan " + this.currentBuildNo + " Description"
                 break     
         }        
     }
@@ -41,7 +45,7 @@ pipeline{
         stage('----clean----'){
             steps{
                 script{
-                    BuildSettings bs = new BuildSettings();
+                    BuildSettings bs = new BuildSettings(currentBuild.number);
                     bs.getDetails(build);
                     currentBuild.displayName = bs.name
                     currentBuild.description = bs.description
