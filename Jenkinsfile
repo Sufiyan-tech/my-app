@@ -19,11 +19,11 @@ pipeline{
                             currentBuild.displayName = "Sufiyan Zero Build"
                             currentBuild.description = "Sufiyan Zero Description"
                             break
-                        case {build > 0}:
+                        case 1:
                             currentBuild.displayName = "Sufiyan Positive Build"
                             currentBuild.description = "Sufiyan Positive Description"
                             break    
-                        case {build < 0}:
+                        case -1:
                             currentBuild.displayName = "Sufiyan Negative Build"
                             currentBuild.description = "Sufiyan Negative Description"
                             break
