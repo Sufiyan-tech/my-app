@@ -47,8 +47,8 @@ pipeline{
                 script{
                     BuildSettings bs = new BuildSettings(currentBuild.number);
                     bs.getDetails(build);
-                    currentBuild.displayName = bs.name
-                    currentBuild.description = bs.description
+                    // currentBuild.displayName = bs.name
+                    // currentBuild.description = bs.description
                 }
 
                 bat "mvn clean"
