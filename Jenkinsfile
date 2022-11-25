@@ -15,26 +15,7 @@ pipeline{
         stage('----clean----'){
             steps{
                 script{
-                    switch(build){
-                        case 0:
-                            currentBuild.displayName = "Sufiyan Zero Build"
-                            currentBuild.description = "Sufiyan Zero Description"
-                            break
-                        case 1:
-                            currentBuild.displayName = "Sufiyan Positive Build"
-                            currentBuild.description = "Sufiyan Positive Description"
-                            break    
-                        case -1:
-                            currentBuild.displayName = "Sufiyan Negative Build"
-                            currentBuild.description = "Sufiyan Negative Description"
-                            break
-                        default:
-                            currentBuild.displayName = "Sufiyan " +currentBuild+ " Build"
-                            currentBuild.description = "Sufiyan " +currentBuild+ " Description"
-                            break    
-
-
-                    }
+                      buildSettings(build)                  
                 }
                 helloWorld(name:"Sufiyan" , description:"How Was The Day")
                 bat "mvn clean"
