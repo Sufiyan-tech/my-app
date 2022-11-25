@@ -36,7 +36,7 @@ pipeline{
 
                     }
                 }
-                helloWorld("Sufiyan" , "How Was The Day")
+                helloWorld(name:"Sufiyan" , name:"How Was The Day")
                 bat "mvn clean"
             }
         }
