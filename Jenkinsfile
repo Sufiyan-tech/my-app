@@ -1,5 +1,32 @@
-def build = 5
-def currentBuildNo = currentBuild.number
+int build = 5
+
+class BuildSettings{
+    def name;
+    def description;
+    int currentBuildNo = currentBuild.number
+
+    static void getDetails(int build){
+        switch(build){
+            case 0:
+                name = "Sufiyan Zero Build"
+                description = "Sufiyan Zero Description"
+                break 
+            case {build > 0}:
+                name = "Sufiyan Positive Build"
+                description = "Sufiyan Positive Description"
+                break
+            case {build < 0}:
+                name = "Sufiyan Negative Build"
+                description = "Sufiyan Negative Description"
+                break   
+            default:
+                name = "Sufiyan " + currentBuildNo + " Build"
+                description = "Sufiyan " + currentBuildNo + " Description"
+                break     
+        }        
+    }
+}
+
 
 pipeline{
     agent any
@@ -14,26 +41,10 @@ pipeline{
         stage('----clean----'){
             steps{
                 script{
-                    switch(build){
-                        case 0:
-                            currentBuild.displayName = "Sufiyan Zero Build"
-                            currentBuild.description = "Sufiyan Zero Description"
-                            break
-                        case 1:
-                            currentBuild.displayName = "Sufiyan Positive Build"
-                            currentBuild.description = "Sufiyan Positive Description"
-                            break    
-                        case -1:
-                            currentBuild.displayName = "Sufiyan Negative Build"
-                            currentBuild.description = "Sufiyan Negative Description"
-                            break
-                        default:
-                            currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
-                            currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
-                            break    
-
-
-                    }
+                    BuildSettings bs = new BuildSettings();
+                    bs.getDetails(build);
+                    currentBuild.displayName = bs.name
+                    currentBuild.description = bs.description
                 }
 
                 bat "mvn clean"
