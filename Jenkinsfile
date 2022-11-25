@@ -13,28 +13,28 @@ pipeline{
     stages{
         stage('----clean----'){
             steps{
-                // script{
-                //     switch(build){
-                //         case 0:
-                //             currentBuild.displayName = "Sufiyan Zero Build"
-                //             currentBuild.description = "Sufiyan Zero Description"
-                //             break
-                //         case {build > 0}:
-                //             currentBuild.displayName = "Sufiyan Positive Build"
-                //             currentBuild.description = "Sufiyan Positive Description"
-                //             break    
-                //         case {build < 0}:
-                //             currentBuild.displayName = "Sufiyan Negative Build"
-                //             currentBuild.description = "Sufiyan Negative Description"
-                //             break
-                //         default:
-                //             // currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
-                //             // currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
-                //             break    
+                script{
+                    switch(build){
+                        case 0:
+                            currentBuild.displayName = "Sufiyan Zero Build"
+                            currentBuild.description = "Sufiyan Zero Description"
+                            break
+                        case 1:
+                            currentBuild.displayName = "Sufiyan Positive Build"
+                            currentBuild.description = "Sufiyan Positive Description"
+                            break    
+                        case -1:
+                            currentBuild.displayName = "Sufiyan Negative Build"
+                            currentBuild.description = "Sufiyan Negative Description"
+                            break
+                        default:
+                            // currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
+                            // currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
+                            break    
 
 
-                //     }
-                // }
+                    }
+                }
 
                 bat "mvn clean"
             }
