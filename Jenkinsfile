@@ -6,6 +6,7 @@ class BuildSettings{
     int currentBuildNo;
 
     public BuildSettings(int currentBuildNo){
+        println("Constructor Invoke");
         this.currentBuildNo = currentBuildNo;
     }
 
