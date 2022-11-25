@@ -5,9 +5,9 @@ class BuildSettings{
     def description;
     int currentBuildNo;
 
-    public BuildSettings(int currentBuildNo){
-        this.currentBuildNo = currentBuildNo;
-    }
+    // public BuildSettings(int currentBuildNo){
+    //     this.currentBuildNo = currentBuildNo;
+    // }
 
     public void getDetails(int build){
         switch(build){
@@ -45,7 +45,7 @@ pipeline{
         stage('----clean----'){
             steps{
                 script{
-                    BuildSettings bs = new BuildSettings(currentBuild.number);
+                    BuildSettings bs = new BuildSettings();
                     bs.getDetails(build);
                     // currentBuild.displayName = bs.name
                     // currentBuild.description = bs.description
