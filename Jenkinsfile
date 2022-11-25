@@ -1,6 +1,7 @@
 def build = 1
 def currentBuildNo = currentBuild.number
 
+@Library("shared-library") _
 pipeline{
     agent any
     environment{
@@ -35,7 +36,7 @@ pipeline{
 
                     }
                 }
-
+                helloWorld()
                 bat "mvn clean"
             }
         }
