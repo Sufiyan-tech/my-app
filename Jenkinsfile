@@ -1,3 +1,6 @@
+def build = 1
+
+
 pipeline{
     agent any
     environment{
@@ -10,6 +13,11 @@ pipeline{
     stages{
         stage('----clean----'){
             steps{
+                script{
+                    currentBuild.displayName = "Sufiyan Build"
+                    currentBuild.description = "Sufiyan Description"
+                }
+
                 bat "mvn clean"
             }
         }
