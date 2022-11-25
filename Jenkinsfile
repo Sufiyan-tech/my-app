@@ -3,7 +3,7 @@ int build = 5
 class BuildSettings{
     static String name;
     static String description;
-    int currentBuildNo;
+    static int currentBuildNo;
 
     // public BuildSettings(int currentBuildNo){
     //     currentBuildNo = currentBuildNo;
