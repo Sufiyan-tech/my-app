@@ -5,10 +5,10 @@ class BuildSettings{
     def description;
     int currentBuildNo;
 
-    public BuildSettings(int currentBuildNo){
-        println("Constructor Invoke");
-        this.currentBuildNo = currentBuildNo;
-    }
+    // public BuildSettings(int currentBuildNo){
+    //     println("Constructor Invoke");
+    //     this.currentBuildNo = currentBuildNo;
+    // }
 
     public void getDetails(int build){
         switch(build){
@@ -32,7 +32,7 @@ class BuildSettings{
     }
 }
 
-                    BuildSettings bs = new BuildSettings(currentBuild.number);
+                    BuildSettings bs = new BuildSettings();
                     bs.getDetails(build);
 
 
