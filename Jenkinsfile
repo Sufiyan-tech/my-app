@@ -1,4 +1,4 @@
-def build = 1
+int build = 1
 def currentBuildNo = currentBuild.number
 
 @Library("shared-library") _
