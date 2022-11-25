@@ -5,7 +5,7 @@ class BuildSettings{
     def description;
     int currentBuildNo = currentBuild.number
 
-    static void getDetails(int build){
+    public void getDetails(int build){
         switch(build){
             case 0:
                 this.name = "Sufiyan Zero Build"
