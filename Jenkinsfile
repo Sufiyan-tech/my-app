@@ -1,5 +1,5 @@
 def build = 1
-def currentBuildNo = currentBuild.number
+//def currentBuildNo = currentBuild.number
 
 pipeline{
     agent any
@@ -28,8 +28,8 @@ pipeline{
                             currentBuild.description = "Sufiyan Negative Description"
                             break
                         default:
-                            currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
-                            currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
+                            // currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
+                            // currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
                             break    
 
 
