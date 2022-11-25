@@ -46,7 +46,7 @@ pipeline{
             steps{
                 script{
                     BuildSettings bs = new BuildSettings();
-                    bs.getDetails(build);
+                    //bs.getDetails(build);
                     // currentBuild.displayName = bs.name
                     // currentBuild.description = bs.description
                 }
