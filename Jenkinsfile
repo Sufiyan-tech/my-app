@@ -1,5 +1,5 @@
 def build = 1
-
+def currentBuildNo = currentBuild.number
 
 pipeline{
     agent any
@@ -14,8 +14,26 @@ pipeline{
         stage('----clean----'){
             steps{
                 script{
-                    currentBuild.displayName = "Sufiyan Build"
-                    currentBuild.description = "Sufiyan Description"
+                    switch(build){
+                        case 0:
+                            currentBuild.displayName = "Sufiyan Zero Build"
+                            currentBuild.description = "Sufiyan Zero Description"
+                            break
+                        case {build > 0}:
+                            currentBuild.displayName = "Sufiyan Positive Build"
+                            currentBuild.description = "Sufiyan Positive Description"
+                            break    
+                        case {build < 0}:
+                            currentBuild.displayName = "Sufiyan Negative Build"
+                            currentBuild.description = "Sufiyan Negative Description"
+                            break
+                        default:
+                            currentBuild.displayName = "Sufiyan " + currentBuildNo + " Build"
+                            currentBuild.description = "Sufiyan " + currentBuildNo + " Description"
+                            break    
+
+
+                    }
                 }
 
                 bat "mvn clean"
