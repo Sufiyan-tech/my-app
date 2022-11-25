@@ -8,20 +8,20 @@ class BuildSettings{
     static void getDetails(int build){
         switch(build){
             case 0:
-                name = "Sufiyan Zero Build"
-                description = "Sufiyan Zero Description"
+                this.name = "Sufiyan Zero Build"
+                this.description = "Sufiyan Zero Description"
                 break 
             case {build > 0}:
-                name = "Sufiyan Positive Build"
-                description = "Sufiyan Positive Description"
+                this.name = "Sufiyan Positive Build"
+                this.description = "Sufiyan Positive Description"
                 break
             case {build < 0}:
-                name = "Sufiyan Negative Build"
-                description = "Sufiyan Negative Description"
+                this.name = "Sufiyan Negative Build"
+                this.description = "Sufiyan Negative Description"
                 break   
             default:
-                name = "Sufiyan " + currentBuildNo + " Build"
-                description = "Sufiyan " + currentBuildNo + " Description"
+                this.name = "Sufiyan " + currentBuildNo + " Build"
+                this.description = "Sufiyan " + currentBuildNo + " Description"
                 break     
         }        
     }
